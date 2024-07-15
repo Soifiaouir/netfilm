@@ -1,5 +1,6 @@
 import React from 'react';
-import PopularMovies from './component/PolpularMovies.js';
+import PopularMovies from './component/api/PolpularMovies';
+import './App.css';
 
 function App() {
   return (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './PolpularMovies.css'
 
 const PopularMovies = () => {
   const [movies, setMovies] = useState([]);
