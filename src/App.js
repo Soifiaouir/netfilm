@@ -1,5 +1,6 @@
 import React from 'react';
 import PopularMovies from './component/api/PolpularMovies';
+import Navbar from './component/menu/Navbar';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       </header>
       <main>
         <PopularMovies />
+        
       </main>
     </div>
   );
