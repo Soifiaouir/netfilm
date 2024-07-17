@@ -1,26 +1,28 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Outlet } from 'react-router-dom';
+import React, { useState, useCallback } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './component/menu/Navbar';
 import PopularMovies from './component/api/PolpularMovies';
+import ProfilePage from './page/profil/Profilepage'; // Chemin inchangé, mais assurez-vous qu'il est correct
 import './App.css';
-import Profile from './profil/profil.js'
 
 function App() {
+  const [genreFilter, setGenreFilter] = useState('');
+
+  const handleFilterChange = useCallback((genreId) => {
+    console.log("Filter changed to:", genreId);
+    setGenreFilter(genreId);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <Outlet>
-          <Router>
-            <Switch>
-              <Route exact path="/profile" component={Profile} />
-            </Switch>
-          </Router>
-        </Outlet>
-        <h1>Netflim</h1>
-      </header>
-      <main>
-        <PopularMovies />
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar onFilterChange={handleFilterChange} />
+        <Routes>
+          <Route path="/" element={<PopularMovies genreFilter={genreFilter} />} />
+          <Route path="/profile" element={<ProfilePage />} /> {/* Changé en minuscules */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

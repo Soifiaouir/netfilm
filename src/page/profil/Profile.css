@@ -1,22 +1,30 @@
-.profile-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+
   
   .profile-header {
     text-align: center;
     margin-bottom: 30px;
+    
   }
-  
-  .profile-avatar {
+    
+  .profile-image{
     width: 150px;
     height: 150px;
     border-radius: 50%;
     margin-bottom: 15px;
+    align-items: center;
   }
-  
+
   .profile-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
   }
+
+  h1{
+    text-align: center;
+  }
+
+  .profile-info{
+    text-align: center;
+  }
+  
