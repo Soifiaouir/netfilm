@@ -6,26 +6,24 @@
   .filter-button {
     padding: 0.5rem;
     font-size: 1rem;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    background-color: white;
+    background-color:#2C2C2C;
+    color: #DFF3EE;
     cursor: pointer;
     margin-right: 10px;
   }
   
   .filter-button:hover {
-    background-color: #f0f0f0;
+    background-color: #182E91;
   }
   
   .apply-button {
     padding: 0.5rem 1rem;
     font-size: 1rem;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    background-color: ;
-      cursor: pointer;
+    background-color: #2C2C2C;
+    color: #DFF3EE;
+    cursor: pointer;
   }
   
   .apply-button:hover {
-    background-color: #555;
+    background-color:#182E91;
   }
