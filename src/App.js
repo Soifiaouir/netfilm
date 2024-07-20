@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import Navbar from './component/menu/Navbar';
 import PopularMovies from './component/api/PolpularMovies';
 import Navbar from './component/menu/Navbar';
 import './App.css';
@@ -13,10 +12,10 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Netflim</h1>
-      </header>
+    <div>
+    <header className="App">
+      <Navbar/>
+    </header>
       <main>
         <PopularMovies />
       </main>
