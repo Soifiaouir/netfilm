@@ -1,0 +1,19 @@
+.movie-details {
+    display: flex;
+    padding: 20px;
+    background-color: #141414;
+    color: white;
+  }
+  
+  .movie-poster {
+    max-width: 300px;
+    margin-right: 20px;
+  }
+  
+  .movie-info {
+    flex: 1;
+  }
+  
+  .movie-info h2 {
+    margin-top: 0;
+  }

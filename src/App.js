@@ -1,6 +1,5 @@
-import React, { useState, useCallback } from 'react';
-import PopularMovies from './component/api/PolpularMovies';
-import Navbar from './component/menu/Navbar';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -17,7 +16,7 @@ function App() {
       <Navbar/>
     </header>
       <main>
-        <PopularMovies />
+        <Outlet />
       </main>
     </div>
   );

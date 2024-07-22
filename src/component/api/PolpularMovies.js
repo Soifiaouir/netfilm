@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './PolpularMovies.css';
+import { Link } from 'react-router-dom';
+import './PolpularMovies.css'
+
 
 const PopularMovies = ({ genreFilter }) => {
   const [movies, setMovies] = useState([]);
@@ -40,13 +42,13 @@ const PopularMovies = ({ genreFilter }) => {
       <h2>Films Populaires</h2>
       <div className="movie-grid">
         {movies.map(movie => (
-          <div key={movie.id} className="movie-card">
+          <Link to={`/movie/${movie.id}`} key={movie.id} className="movie-card">
             <img 
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
               alt={movie.title}
             />
             <h3>{movie.title}</h3>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
