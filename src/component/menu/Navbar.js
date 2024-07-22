@@ -11,10 +11,9 @@ const Navbar = ({ onFilterChange }) => {
       <div className="navbar">
         <img src={logoImage} alt="Logo NetFilm" className="navbar-logo-image" />
         <FilterButton onFilterChange={onFilterChange} />
-        
-        <Link to="/profile" className="profil-link"> {/* Changé en minuscules */}
+          <Link to="/profile" className="profil-link"> {/* Changé en minuscules */}
             <img src={profileIcon} alt="Profil" className="profil-icon" />
-        </Link>
+          </Link>
       </div>
     );
   };

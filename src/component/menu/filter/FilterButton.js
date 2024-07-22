@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-
 const FilterButton = ({ onFilterChange }) => {
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState('');
