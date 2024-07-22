@@ -1,5 +1,7 @@
-import React from 'react';
+
+import React, { useState, useCallback } from 'react';
 import { Outlet } from 'react-router-dom';
+import Navbar from './component/menu/Navbar';
 import './App.css';
 import Navbar from './component/menu/Navbar';
 
@@ -11,13 +13,13 @@ function App() {
     setGenreFilter(genreId);
   }, []);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar />
+
+    <div>
+      <header className="App">
+        <Navbar onFilterChange={handleFilterChange} />
       </header>
       <main>
-        <Outlet />
+        <Outlet context={{ genreFilter }} />
       </main>
     </div>
   );
