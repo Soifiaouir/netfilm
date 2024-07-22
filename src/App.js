@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { Outlet } from 'react-router-dom';
+import Navbar from './component/menu/Navbar';
 import './App.css';
-import PopularMovies from './component/api/PolpularMovies';
+
 function App() {
   const [genreFilter, setGenreFilter] = useState('');
 
@@ -16,7 +17,7 @@ function App() {
         <Navbar onFilterChange={handleFilterChange} />
       </header>
       <main>
-        <PopularMovies />
+        <Outlet context={{ genreFilter }} />
       </main>
     </div>
   );

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
 import './PolpularMovies.css'
 
-
-const PopularMovies = ({ genreFilter }) => {
+const PopularMovies = () => {
   const [movies, setMovies] = useState([]);
+  const { genreFilter } = useOutletContext();
 
   useEffect(() => {
     const fetchMovies = async () => {
