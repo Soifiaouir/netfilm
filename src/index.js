@@ -4,25 +4,19 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App';
 import PopularMovies from './component/api/PolpularMovies';
 import ProfilePage from './page/profil/Profilepage';
-import Navbar from './component/menu/Navbar';
 import './index.css';
 
-function Main() {
-  return (
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
     <Router>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/popular-movies" element={<PopularMovies />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/" element={<App />}>
+          <Route index element={<PopularMovies />} />
+          <Route path="popular-movies" element={<PopularMovies />} />
+          <Route path="profile" element={<ProfilePage />} />
+        </Route>
       </Routes>
     </Router>
-  );
-}
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Main />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );

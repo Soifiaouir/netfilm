@@ -1,18 +1,17 @@
-import React, { useState, useCallback } from 'react';
-import PopularMovies from './component/api/PolpularMovies';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import './App.css';
+import Navbar from './component/menu/Navbar';
 
 function App() {
-  const [genreFilter, setGenreFilter] = useState('');
-
-  const handleFilterChange = useCallback((genreId) => {
-    console.log("Filter changed to:", genreId);
-    setGenreFilter(genreId);
-  }, []);
-
   return (
     <div className="App">
-      <PopularMovies genreFilter={genreFilter} />
+      <header className="App-header">
+        <Navbar />
+      </header>
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }
