@@ -13,11 +13,11 @@ function App() {
 
   return (
     <div>
-    <header className="App">
-      <Navbar/>
-    </header>
+      <header className="App">
+        <Navbar onFilterChange={handleFilterChange} />
+      </header>
       <main>
-        <PopularMovies />
+        <PopularMovies genreFilter={genreFilter} />
       </main>
     </div>
   );
