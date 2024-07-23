@@ -6,14 +6,11 @@ import { useSearch } from '../searchcontent/SearchContent.jsx';
 const PopularMovies = () => {
   const [movies, setMovies] = useState([]);
   const { searchTerm } = useSearch();
-  const { genreFilter } = useOutletContext();
+  const { selectedGenre } = useOutletContext();
 
   useEffect(() => {
     const fetchMovies = async () => {
-      let API_URL = `https://api.themoviedb.org/3/discover/movie?language=fr-FR&sort_by=popularity.desc&page=1`;
-      if (genreFilter) {
-        API_URL += `&with_genres=${genreFilter}`;
-      }
+      const API_URL = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1';
       
       const options = {
         method: 'GET',
@@ -37,29 +34,27 @@ const PopularMovies = () => {
     };
 
     fetchMovies();
-  }, [genreFilter]);
+  }, []);
 
-  const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredMovies = movies.filter((movie) => {
+    const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesGenre = selectedGenre ? movie.genre_ids.includes(parseInt(selectedGenre)) : true;
+    return matchesSearch && matchesGenre;
+  });
 
   return (
     <div className="popular-movies">
       <h2>Films Populaires</h2>
       <div className="movie-grid">
-
-     
-
-        {filteredMovies.map((movie => (
+        {filteredMovies.map((movie) => (
           <Link to={`/movie/${movie.id}`} key={movie.id} className="movie-card">
-
             <img 
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
               alt={movie.title}
             />
             <h3>{movie.title}</h3>
           </Link>
-        )))}
+        ))}
       </div>
     </div>
   );

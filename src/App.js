@@ -1,7 +1,5 @@
-
-// import PopularMovies from './component/api/PolpularMovies.js';
+import React, { useState } from 'react';
 import Hero from './component/hero/hero.js';
-import React, { useState, useCallback } from 'react';
 import { Outlet } from 'react-router-dom';
 import SearchBar from "./component/search/search";
 import { SearchProvider } from "./component/searchcontent/SearchContent.jsx";
@@ -9,11 +7,10 @@ import Navbar from './component/menu/Navbar';
 import './App.css';
 
 function App() {
-  const [genreFilter, setGenreFilter] = useState('');
+  const [selectedGenre, setSelectedGenre] = useState('');
 
   const handleFilterChange = (genreId) => {
-    console.log("Filter changed to:", genreId);
-    setGenreFilter(genreId);
+    setSelectedGenre(genreId);
   };
 
   return(
@@ -25,12 +22,11 @@ function App() {
           <Navbar onFilterChange={handleFilterChange} />
         </header>
         <main>
-          <Outlet context={{ genreFilter }} />
+          <Outlet context={{ selectedGenre }} />
         </main>
       </SearchProvider>
     </div>
   );
 }
-  
 
 export default App;

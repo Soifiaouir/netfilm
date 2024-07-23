@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 const FilterButton = ({ onFilterChange }) => {
   const [genres, setGenres] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState('');
 
   useEffect(() => {
     const fetchGenres = async () => {
@@ -33,13 +32,12 @@ const FilterButton = ({ onFilterChange }) => {
 
   const handleGenreChange = (e) => {
     const genreId = e.target.value;
-    setSelectedGenre(genreId);
     onFilterChange(genreId);
   };
 
   return (
     <div className="filter-container">
-      <select className="filter-button" value={selectedGenre} onChange={handleGenreChange}>
+      <select className="filter-button" onChange={handleGenreChange}>
         <option value="">Tous les genres</option>
         {genres.map(genre => (
           <option key={genre.id} value={genre.id}>{genre.name}</option>
