@@ -8,7 +8,9 @@ import profileIcon from '../../asset/Profil.png';
 const Navbar = ({ onFilterChange }) => {
   return (
     <div className="navbar">
-      <img src={logoImage} alt="Logo NetFilm" className="navbar-logo-image" />
+      <Link to="/" className="logo-link">
+        <img src={logoImage} alt="Logo NetFilm" className="navbar-logo-image" />
+      </Link>
       <FilterButton onFilterChange={onFilterChange} />
       <Link to="/profile" className="profil-link"> 
         <img src={profileIcon} alt="Profil" className="profil-icon" />

@@ -3,3 +3,8 @@ body {
   color: #DFF3EE;
   font-family: "Hind Madurai";
 }
+.search_container{
+position: absolute;
+top: 50%;
+display: flex;
+}

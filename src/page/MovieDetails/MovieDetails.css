@@ -1,8 +1,9 @@
 .movie-details {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
-    background-color: #141414;
-    color: white;
+    gap: 60px;
   }
   
   .movie-poster {
@@ -12,8 +13,13 @@
   
   .movie-info {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1em;
   }
   
   .movie-info h2 {
+
     margin-top: 0;
   }
