@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
 import './PolpularMovies.css'
+import { useSearch } from '../searchcontent/SearchContent.jsx';
 
 const PopularMovies = () => {
   const [movies, setMovies] = useState([]);
-  const { genreFilter } = useOutletContext();
+const { searchTerm } = useSearch();
+ const { genreFilter } = useOutletContext();
+
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -37,12 +40,20 @@ const PopularMovies = () => {
     fetchMovies();
   }, [genreFilter]);
 
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="popular-movies">
       <h2>Films Populaires</h2>
       <div className="movie-grid">
-        {movies.map(movie => (
-          <Link to={`/movie/${movie.id}`} key={movie.id} className="movie-card">
+
+     
+
+        {filteredMovies.map((movie => (
+          <Link to={`/movie/${movie.id}`} key={movie.id}>{movie.title} className="movie-card">
+
             <img 
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
               alt={movie.title}
