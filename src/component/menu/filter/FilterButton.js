@@ -39,7 +39,7 @@ const FilterButton = ({ onFilterChange }) => {
   return (
     <div className="filter-container">
       <select className="filter-button" onChange={handleGenreChange}>
-        <option value="">Tous les genres</option>
+        <option value="">Genres</option>
         {genres.map(genre => (
           <option key={genre.id} value={genre.id}>{genre.name}</option>
         ))}

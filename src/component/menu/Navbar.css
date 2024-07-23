@@ -1,12 +1,55 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: transparent;
-   
-  }
-  
-  .navbar-logo {
-    height: 40px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: transparent;
+  position: relative;
+}
+
+.navbar-logo-image {
+  height: 40px;
+}
+
+.navbar-center,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-icon {
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.navbar-search {
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.navbar-search input {
+  width: 200px; /* Ajustez cette valeur selon la largeur souhaitée */
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-container:hover .navbar-search,
+.navbar-search.show {
+  max-width: 200px; /* Ajustez cette valeur selon la largeur souhaitée */
+  opacity: 1;
+}
+
+/* Assurez-vous que ces éléments ne rétrécissent pas */
+.logo-link, .profil-link, .search-icon, .navbar-search {
+  flex-shrink: 0;
+}
