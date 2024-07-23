@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './PolpularMovies.css'
+import { useSearch } from '../searchcontent/SearchContent.jsx';
 
 const PopularMovies = () => {
   const [movies, setMovies] = useState([]);
+  const { searchTerm } = useSearch();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -30,19 +32,23 @@ const PopularMovies = () => {
     fetchMovies();
   }, []);
 
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="popular-movies">
       <h2>Films Populaires</h2>
       <div className="movie-grid">
-        {movies.map(movie => (
-          <div key={movie.id} className="movie-card">
+      {filteredMovies.map((movie => (
+          <div className="movie-card" key={movie.id}>{movie.title}{'>'}
             <img 
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
               alt={movie.title}
             />
             <h3>{movie.title}</h3>
           </div>
-        ))}
+        )))}
       </div>
     </div>
   );
