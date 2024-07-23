@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './FilterButton.css';
 
 const FilterButton = ({ onFilterChange }) => {
   const [genres, setGenres] = useState([]);

@@ -18,8 +18,8 @@ const Hero = () => {
       try {
         const response = await fetch(API_URL, {
           headers: {
-            'Authorization': 'Bearer YOUR_ACCESS_TOKEN_HERE',
-            'Content-Type': 'application/json'
+            accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZGRmMmQ0YWZlMmI4ODQyYTY5MjA5MTU5YWQ0MzM4YiIsIm5iZiI6MTcyMTAzMjU5Ni4zNDc5NzYsInN1YiI6IjY2OGQwMjY5MTA3ODhjYTkxYzE5ODk5NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tbLIRSLUtAmVwqeF_C7yCrQs9Ykp_DCPlZ9McChrpms'
           }
         });
 
@@ -28,7 +28,7 @@ const Hero = () => {
         }
 
         const data = await response.json();
-        const images = data.results.slice(0, 5).map(movie => `https://image.tmdb.org/t/p/original${movie.backdrop_path}`);
+        const images = data.results.slice(0, 20).map(movie => `https://image.tmdb.org/t/p/original${movie.backdrop_path}`);
         setBackgroundImages(images);
       } catch (error) {
         console.error("Erreur lors de la récupération des images:", error);
