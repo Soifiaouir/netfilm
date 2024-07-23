@@ -4,13 +4,9 @@ import './FilterButton.css';
 const FilterButton = ({ onFilterChange }) => {
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchGenres = async () => {
-      setIsLoading(true);
-      setError(null);
       const API_URL = 'https://api.themoviedb.org/3/genre/movie/list?language=fr-FR';
       
       const options = {
@@ -27,15 +23,9 @@ const FilterButton = ({ onFilterChange }) => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        if (!data.genres || !Array.isArray(data.genres)) {
-          throw new Error('Invalid data structure received from API');
-        }
         setGenres(data.genres);
       } catch (error) {
-        console.error("Erreur détaillée lors de la récupération des genres:", error);
-        setError(`Erreur: ${error.message}`);
-      } finally {
-        setIsLoading(false);
+        console.error("Erreur lors de la récupération des genres:", error);
       }
     };
 
@@ -43,16 +33,10 @@ const FilterButton = ({ onFilterChange }) => {
   }, []);
 
   const handleGenreChange = (e) => {
-    setSelectedGenre(e.target.value);
+    const genreId = e.target.value;
+    setSelectedGenre(genreId);
+    onFilterChange(genreId);
   };
-
-  const applyFilter = () => {
-    console.log("Applying filter with genre:", selectedGenre);
-    onFilterChange(selectedGenre);
-  };
-
-  if (isLoading) return <div>Genres</div>;
-  if (error) return <div>Erreur: {error}</div>;
 
   return (
     <div className="filter-container">
@@ -62,7 +46,6 @@ const FilterButton = ({ onFilterChange }) => {
           <option key={genre.id} value={genre.id}>{genre.name}</option>
         ))}
       </select>
-      <button className="apply-button" onClick={applyFilter}>GO</button>
     </div>
   );
 };
