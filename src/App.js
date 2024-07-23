@@ -7,8 +7,6 @@ import SearchBar from "./component/search/search";
 import { SearchProvider } from "./component/searchcontent/SearchContent.jsx";
 import Navbar from './component/menu/Navbar';
 import './App.css';
-import Navbar from './component/menu/Navbar';
-
 
 function App() {
   const [genreFilter, setGenreFilter] = useState('');
@@ -18,7 +16,7 @@ function App() {
     setGenreFilter(genreId);
   };
 
-
+  return(
     <div>
       <Hero/>
       <SearchProvider>

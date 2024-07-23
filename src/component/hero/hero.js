@@ -28,7 +28,7 @@ const Hero = () => {
         }
 
         const data = await response.json();
-        const images = data.results.slice(0, 5).map(movie => `https://image.tmdb.org/t/p/original${movie.backdrop_path}`);
+        const images = data.results.slice(0, 20).map(movie => `https://image.tmdb.org/t/p/original${movie.backdrop_path}`);
         setBackgroundImages(images);
       } catch (error) {
         console.error("Erreur lors de la récupération des images:", error);
