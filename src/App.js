@@ -1,4 +1,4 @@
-import PopularMovies from './component/api/PolpularMovies.js';
+// import PopularMovies from './component/api/PolpularMovies.js';
 import Hero from './component/hero/hero.js';
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
@@ -18,9 +18,9 @@ function App() {
 
   return (
     <div>
+      <Hero/>
       <SearchProvider>
         <header className="App">
-              <Hero />
           <SearchBar />
           <Navbar onFilterChange={handleFilterChange} />
         </header>
