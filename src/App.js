@@ -1,4 +1,4 @@
-import PopularMovies from './component/api/PolpularMovies.js';
+// import PopularMovies from './component/api/PolpularMovies.js';
 import Hero from './component/hero/hero.js';
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
@@ -20,11 +20,15 @@ function App() {
     <div>
       <SearchProvider>
         <header className="App">
-              <Hero />
-          <SearchBar />
           <Navbar onFilterChange={handleFilterChange} />
         </header>
         <main>
+        <div className='hero_container'>
+        <Hero/>
+        <div className='search_container'>
+        <SearchBar/>
+        </div>
+        </div>
           <Outlet context={{ genreFilter }} />
         </main>
       </SearchProvider>
