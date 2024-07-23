@@ -3,8 +3,14 @@ body {
   color: #DFF3EE;
   font-family: "Hind Madurai";
 }
-.search_container{
-position: absolute;
-top: 50%;
-display: flex;
+.search{
+  position: absolute;
+  top: 88%;
+  left: 30%;
+}
+.search input{
+  width: 500px;
+  height: 50px;
+  border-radius: 40px;
+  filter: drop-shadow(10px 10px 10px rgb(237, 121, 121));
 }
