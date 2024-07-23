@@ -47,15 +47,19 @@ const PopularMovies = () => {
     <div className="popular-movies">
       <h2>Films Populaires</h2>
       <div className="movie-grid">
-        {filteredMovies.map((movie) => (
+
+     
+
+        {filteredMovies.map((movie => (
           <Link to={`/movie/${movie.id}`} key={movie.id} className="movie-card">
+
             <img 
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
               alt={movie.title}
             />
             <h3>{movie.title}</h3>
           </Link>
-        ))}
+        )))}
       </div>
     </div>
   );
