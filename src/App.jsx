@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import SearchBar from "./component/search/search";
+import SearchBar from "./component/search/search.jsx";
 import { SearchProvider } from "./component/searchcontent/SearchContent.jsx";
-import Navbar from "./component/menu/Navbar";
-import Hero from "./component/hero/hero.js";
+import Navbar from "./component/menu/Navbar.jsx";
+import Hero from "./component/hero/hero.jsx";
 import "./App.css";
 
 function App() {
