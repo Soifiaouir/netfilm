@@ -6,11 +6,16 @@ import { useSearch } from '../searchcontent/SearchContent.jsx';
 const PopularMovies = () => {
   const [movies, setMovies] = useState([]);
   const { searchTerm } = useSearch();
-  const { selectedGenre } = useOutletContext();
+  const { genreFilter } = useOutletContext(); // Assurez-vous que c'est le bon nom utilisé dans votre contexte
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const API_URL = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1';
+      let API_URL = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1';
+      
+      // Si un genre est sélectionné, utilisez l'endpoint de découverte
+      if (genreFilter) {
+        API_URL = `https://api.themoviedb.org/3/discover/movie?with_genres=${genreFilter}&language=fr-FR&page=1`;
+      }
       
       const options = {
         method: 'GET',
@@ -34,13 +39,11 @@ const PopularMovies = () => {
     };
 
     fetchMovies();
-  }, []);
+  }, [genreFilter]); // Ajout de genreFilter comme dépendance
 
-  const filteredMovies = movies.filter((movie) => {
-    const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesGenre = selectedGenre ? movie.genre_ids.includes(parseInt(selectedGenre)) : true;
-    return matchesSearch && matchesGenre;
-  });
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="popular-movies">

@@ -19,6 +19,10 @@ root.render(
           <Route path="movie/:id" element={<MovieDetails />} />
         </Route>
       </Routes>
+
     </Router>
   </React.StrictMode>
 );
+
+//permet l'utilisation du routage basé sur l'historique du navigateur.//
+//différentes routes de l'application //
