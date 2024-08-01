@@ -6,13 +6,8 @@
   .filter-button {
     padding: 0.5rem;
     font-size: 1rem;
-<<<<<<< Updated upstream
     border: none;
     background:transparent;
-=======
-    background-color:#2C2C2C;
-    color: #DFF3EE;
->>>>>>> Stashed changes
     cursor: pointer;
     margin-right: 10px;
     color: #DFF3EE;
